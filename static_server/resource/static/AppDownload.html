@@ -1,0 +1,55 @@
+
+<html>
+	<head>
+		<script language="javascript" type="text/javascript">
+			function mo_chk(){
+			
+				var os;
+			
+				var mobile = (/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()));	 
+			
+				if (mobile) {
+					var userAgent = navigator.userAgent.toLowerCase();
+					if (userAgent.search("android") > -1){
+						return os = "android";
+					}else if ((userAgent.search("iphone") > -1) || (userAgent.search("ipod") > -1) || (userAgent.search("ipad") > -1)){
+						return os = "ios";
+					}else{
+						return os = "other";
+					}
+			
+				} else {
+					return os = "pc";
+				}
+			}
+			
+			function updateUrl(url){
+				window.location = url;
+			}
+			
+			function action_appstore_open(android_url , ios_url, pc_url){
+				var result_mo_chk = mo_chk();
+			
+				if(result_mo_chk!="pc"){
+					if(result_mo_chk == "ios"){
+						window.setTimeout(function(){
+						      updateUrl(ios_url);
+						},0);
+					}else{
+						location.href = android_url;
+					}
+				}else{
+					location.href = pc_url;
+				}
+			}
+			
+			action_appstore_open('market://details?id=com.stockbalance.purple', 
+					'https://apps.apple.com/kr/app/juit-%EC%A3%BC%EC%9E%87-%EA%B0%84%ED%8E%B8%ED%95%9C-%EC%A3%BC%EC%8B%9D-%EA%B4%80%EB%A6%AC%EC%9D%98-%EC%8B%9C%EC%9E%91/id1563512066',
+					'https://juit.co.kr');
+			window.close();
+		</script>
+	</head>
+	
+    <body>
+    </body>
+</html>

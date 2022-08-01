@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+sqlalchemy
+pymysql
+cryptography
+firebase_admin
+pandas
+streamlit
